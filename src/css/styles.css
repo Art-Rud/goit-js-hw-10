@@ -16,3 +16,247 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+@import 'flatpickr/dist/flatpickr.min.css';
+@import 'izitoast/dist/css/iziToast.min.css';
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.datetime-picker {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 280px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  background: #fff;
+  padding: 8px 16px;
+  margin-right: 8px;
+}
+#datetime-picker:hover {
+  border: 1px solid #000;
+}
+#datetime-picker:active,
+#datetime-picker:focus {
+  border: 1px solid #4e75ff;
+  outline: transparent;
+}
+.disable-input {
+  border-color: #808080;
+  background: #fafafa;
+  color: #808080;
+}
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  width: 75px;
+  height: 40px;
+  background-color: #cfcfcf;
+  color: #989898;
+}
+
+.enabled {
+  background-color: #cfcfcf;
+  color: #989898;
+  background-color: #4e75ff;
+  color: #fff;
+}
+.enabled:hover {
+  background-color: #6c8cff;
+}
+.timer {
+  display: flex;
+  gap: 24px;
+  width: 346px;
+  height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+.value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2e2f42;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.flatpickr-calendar {
+  background: #f5f5f5;
+  max-width: 280px;
+  padding: 16px;
+}
+span.flatpickr-weekdays {
+  display: flex;
+  justify-content: start;
+  font-size: 16px !important;
+  max-width: 26px !important;
+  padding: 0;
+}
+.flatpickr-weekdaycontainer {
+  max-width: 280px;
+}
+div.flatpickr-days {
+  max-width: 248px !important;
+}
+.flatpickr-innerContainer {
+  max-width: 248px;
+}
+.flatpickr-rContainer {
+  max-width: 248px;
+}
+div.dayContainer {
+  display: flex;
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #666;
+  max-width: 248px !important;
+  min-width: 248px !important;
+}
+.flatpickr-time {
+  border-top: 1px solid #c1c1c1 !important;
+}
+input.numInput {
+  font-weight: 600 !important ;
+  font-size: 16px;
+  text-align: center;
+  color: #333;
+}
+.flatpickr-day.today {
+  border-color: #4e75ff;
+  /* border: #4e75ff, solid 1px; */
+}
+.flatpickr-day:hover {
+  background-color: #c1c1c1;
+  border: none;
+}
+.flatpickr-day.selected {
+  background-color: #4e75ff;
+  border: none;
+}
+.flatpickr-months {
+  display: flex;
+  align-items: baseline;
+}
+.flatpickr-month {
+  display: flex;
+  align-items: center;
+}
+div.flatpickr-current-month {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  text-align: center;
+  color: #333;
+  display: flex;
+  align-items: baseline;
+  padding: 0;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  text-align: center;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+span.flatpickr-prev-month {
+  padding: 0;
+  margin-top: 6px;
+}
+span.flatpickr-next-month {
+  padding: 0;
+  margin-top: 6px;
+}
+input[name='delay'] {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+  padding: 8px 16px;
+}
+input[name='delay']:hover {
+  border-color: #000;
+}
+input[name='delay']:active,
+input[name='delay']:focus {
+  border-color: #4e75ff;
+  outline: transparent;
+}
+.fieldset {
+  border-radius: 4px;
+  border: 1px solid #808080;
+  width: 360px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 48px;
+  margin-bottom: 24px;
+}
+.fieldset:hover {
+  border-color: #000;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.form :first-child {
+  display: flex;
+  flex-direction: column;
+}
+fieldset label {
+  display: flex;
+  letter-spacing: normal;
+}
+fieldset input {
+  width: 20px;
+  margin-right: 14px;
+}
+button[type='submit'] {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 360px;
+  height: 40px;
+  background: #4e75ff;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border: none;
+}
+.fieldset-border {
+  border-color: #000;
+}

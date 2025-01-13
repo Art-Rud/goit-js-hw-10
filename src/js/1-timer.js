@@ -7,7 +7,6 @@ const input = document.querySelector('input');
 import flatpickr from 'flatpickr';
 import iziToast from 'izitoast';
 let userSelectedDate = null;
-startBtn.disabled = true;
 flatpickr('#datetime-picker', {
   locale: {
     firstDayOfWeek: 1,
@@ -29,31 +28,11 @@ flatpickr('#datetime-picker', {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+    // console.log(selectedDates[0]);
     userSelectedDate = selectedDates[0];
-    startBtn.addEventListener('click', () => {
-      const timeCalc = setInterval(() => {
-        let timerDif = userSelectedDate - Date.now();
-        console.log(timerDif);
-        if (timerDif <= 0) {
-          clearInterval(timeCalc);
-          return;
-        }
-        const timerDifCalc = convertMs(timerDif);
-        timerDays.textContent = timerDifCalc.days.toString().padStart(2, 0);
-        timerHours.textContent = timerDifCalc.hours.toString().padStart(2, 0);
-        timerMin.textContent = timerDifCalc.minutes.toString().padStart(2, 0);
-        timerSec.textContent = timerDifCalc.seconds.toString().padStart(2, 0);
-        if (timerDifCalc != 0) {
-          startBtn.disabled = true;
-          startBtn.classList.remove('enabled');
-        }
-      }, 1000);
-    });
     if (userSelectedDate <= new Date()) {
       startBtn.disabled = true;
       startBtn.classList.remove('enabled');
-      input.classList.remove('disable-input');
       // alert('Please choose a date in the future');
       iziToast.error({
         title: 'Error',
@@ -68,8 +47,6 @@ flatpickr('#datetime-picker', {
     } else {
       startBtn.disabled = false;
       startBtn.classList.add('enabled');
-      input.disabled = true;
-      input.classList.add('disable-input');
     }
   },
 });
@@ -91,7 +68,31 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+startBtn.addEventListener('click', () => {
+  const timeCalc = setInterval(() => {
+    let timerDif = userSelectedDate - Date.now();
+    // console.log(timerDif);
+    if (timerDif <= 0) {
+      input.classList.remove('disable-input');
+      input.disabled = false;
+      clearInterval(timeCalc);
+      return;
+    } else {
+      input.disabled = true;
+      input.classList.add('disable-input');
+    }
+    const timerDifCalc = convertMs(timerDif);
+    timerDays.textContent = timerDifCalc.days.toString().padStart(2, 0);
+    timerHours.textContent = timerDifCalc.hours.toString().padStart(2, 0);
+    timerMin.textContent = timerDifCalc.minutes.toString().padStart(2, 0);
+    timerSec.textContent = timerDifCalc.seconds.toString().padStart(2, 0);
+    if (timerDifCalc != 0) {
+      startBtn.disabled = true;
+      startBtn.classList.remove('enabled');
+    }
+  }, 1000);
+});
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+// console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+// console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
+// console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
